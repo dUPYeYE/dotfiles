@@ -1,0 +1,280 @@
+#                              ▄▀                    ▄▀          ▄▀
+#    █▄▄ █▀█ █▀█ █▀█ █▀   █▀█ █▀█ █▄▄ █▀▀ █▀█ ▀█▀   ▄▀█ █▀█ █▀█ ▄▀█ █▀▄
+#    █▄█ █▄█ █▀▄ █▄█ ▄█   █▀▄ █▄█ █▄█ ██▄ █▀▄ ░█░   █▀█ █▀▄ █▀▀ █▀█ █▄▀
+#
+#    █▀ ▀█ ▄█ ░░▄▀ ▀█
+#    ▄█ █▄ ░█ ▄▀░░ █▄
+#
+
+# Autostart system apps and utilities
+
+# Dual monitor setup
+#exec --no-startup-id xrandr --output DisplayPort-0 --off --output DisplayPort-1 --off --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-1 --mode 1920x1080 --pos 2016x0 --rotate normal
+exec --no-startup-id ~/.screenlayout/vertical.sh
+
+# For ssh-askpass
+exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
+exec --no-startup-id gnome-keyring-daemon --start
+
+# Compoziting manager: no tearing, transparency, animations
+exec --no-startup-id compton -b
+
+# Networking
+exec --no-startup-id nm-applet
+
+# Noise suppression
+exec --no-startup-id $HOME/.local/bin/noisetorch -i
+
+# Bluetooth
+exec --no-startup-id blueman-applet
+
+# Wallpapers
+exec_always --no-startup-id feh --bg-scale --no-xinerama $HOME/Pictures/firewatch.png
+#exec_always --no-startup-id feh --bg-fill $HOME/Pictures/mazda.jpg
+
+# Language switch bind (Shift + alt)
+exec_always --no-startup-id setxkbmap -layout us,hu -variant ,101_qwerty_comma_nodead -option "grp:alt_shift_toggle"
+
+# Start proper autotiling layout
+# exec_always --no-startup-id ~/.config/i3/scripts/alternating_layouts.py
+
+# Auto no border for unfocused window
+exec_always --no-startup-id ~/.config/i3/scripts/borders.py
+
+# Notifications daemon
+exec --no-startup-id dunst
+
+# Assign workspaces to monitors
+set $firstMonitor HDMI-A-0
+set $secondMonitor HDMI-A-1
+
+workspace 1 output $firstMonitor
+workspace 2 output $firstMonitor
+workspace 3 output $firstMonitor
+workspace 4 output $firstMonitor
+workspace 5 output $firstMonitor
+workspace 6 output $firstMonitor
+workspace 7 output $firstMonitor
+workspace 8 output $secondMonitor
+workspace 9 output $secondMonitor
+workspace 10 output $secondMonitor
+
+## Meta (Win) key
+set $mod Mod4
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+font pango:Noto Sans 0
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id termite
+
+# azure data studio
+bindsym $mod+o exec --no-startup-id azuredatastudio
+
+# settings
+bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
+
+# start file manager(nautilus)
+bindsym $mod+Shift+Return exec --no-startup-id thunar
+
+# kill focused window
+bindsym $mod+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -font "Hack Nerd Font 16"
+bindsym $mod+Shift+d exec --no-startup-id dmenu_run -l 10 -fn "Inconsolata-13" -p "Run: "
+bindsym $mod+Shift+b exec --no-startup-id dmenu_run
+bindsym $mod+Shift+k exec --no-startup-id ~/Documents/dmenu-scripts/dmenu-kill-process
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# orientation for new workspaces
+default_orientation horizontal
+
+# split in horizontal orientation
+bindsym $mod+g split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# next/previous workspace
+bindsym Mod1+Tab workspace back_and_forth
+bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Tab workspace next
+ 
+#navigate workspaces next / previous
+bindsym Mod1+Ctrl+Right workspace next
+bindsym Mod1+Ctrl+Left workspace prev
+ 
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+mod2+KP_1 workspace 1
+bindsym $mod+mod2+KP_2 workspace 2
+bindsym $mod+mod2+KP_3 workspace 3
+bindsym $mod+mod2+KP_4 workspace 4
+bindsym $mod+mod2+KP_5 workspace 5
+bindsym $mod+mod2+KP_6 workspace 6
+bindsym $mod+mod2+KP_7 workspace 7
+bindsym $mod+mod2+KP_8 workspace 8
+bindsym $mod+mod2+KP_9 workspace 9
+bindsym $mod+mod2+KP_0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# brightness control
+bindsym $mod+F11 exec brightnessctl set 5%-
+bindsym $mod+F12 exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+
+# volume control
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 2%+
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 2%-
+bindsym XF86AudioMute exec amixer -q sset Master toggle
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# ArcoLinux Logout
+bindsym $mod+Shift+e exec --no-startup-id archlinux-logout
+bindsym $mod+X exec --no-startup-id archlinux-logout
+
+# Launch user applications
+
+# Flameshot
+bindsym Print exec flameshot gui 
+bindsym $mod+Print exec flameshot screen
+bindsym Shift+Print exec flameshot full
+
+# browser
+bindsym $mod+w exec --no-startup-id firefox
+
+# vs code
+bindsym $mod+c exec --no-startup-id code
+
+# Intellij IDEA
+bindsym $mod+i exec --no-startup-id idea
+
+# Open specific applications in floating mode
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [title="File Transfer*"] floating enable
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [title="Lutris"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [title="Openbox Logout"] fullscreen enable
+for_window [title="Screen Layout Editor"] floating enable
+for_window [class="Cheese"] floating enable
+for_window [title="Uno Calculator"] floating enable resize set 640 480
+for_window [title="Android Emulator - Pixel_3a_API_33_x86_64:5554"] floating enable 
+for_window [class="discord"] floating enable resize set 1440 960
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym Right resize shrink width 3 px or 3 ppt
+        bindsym Up resize grow height 3 px or 3 ppt
+        bindsym Down resize shrink height 3 px or 3 ppt
+        bindsym Left resize grow width 3 px or 3 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Setting up i3-gaps
+for_window [class="^.*"] border pixel 1
+gaps inner 3
+gaps outer 3
+
+# Launch polybar on launch
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Colorscheme
+# class                 border  backgr. text    indicator
+client.focused          #ff79c6 #ff79c6 #fabd2f #ff79c6
+client.focused_inactive #3c3836 #504945 #d5c4a1 #504945
+client.unfocused        #3c3836 #504945 #d5c4a1 #504945
+client.urgent           #7c6f64 #fabd2f #3c3836 #fabd2f
+
+client.background	#ffffff
+
+# Autostart applications
+
+# Autotiling
+exec_always --no-startup-id autotiling
+
+# Firefox browser
+#exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/firefox'
