@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
 # dmenu theming
-lines="-l 10"
-font="-fn $hacknerd"
-colors="-nb #2C323E -nf #9899a0 -sb #BF616A -sf #2C323E"
+lines="-l 8"
+font="-fn Inconsolata-13"
+colors="-nb #282828 -nf #ebdbb2 -sb #cc241d -sf #ebdbb2"
 
 selected="$(ps -a -u $USER | \
-            dmenu -i -p "Kill process: " \
-            $lines $font | \
+            dmenu -i -p "Type to search and select process to kill" \
+            $lines $colors $font | \
             awk '{print $1" "$4}')"; 
 
 if [[ ! -z $selected ]]; then
 
     answer="$(echo -e "Yes\nNo" | \
             dmenu -i -p "$selected will be killed, are you sure?" \
-            $lines -bw 2 -fn "Hack Nerd Font 24" )"
+            $lines $colors $font )"
 
     if [[ $answer == "Yes" ]]; then
         selpid="$(awk '{print $1}' <<< $selected)"; 
