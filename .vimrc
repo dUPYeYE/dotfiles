@@ -6,22 +6,21 @@ set number
 let g:dracula_colorterm = 0
 packadd! dracula
 syntax enable
-colorscheme dracula
 call plug#begin()
 
 Plug 'itchyny/lightline.vim'
 Plug 'gmarik/Vundle.vim'
 Plug 'suan/vim-instant-markdown', {'rtp': 'after'}
 Plug 'frazrepo/vim-rainbow'
-
+Plug 'morhetz/gruvbox'
 Plug 'vifm/vifm.vim'                               " Vifm
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'lilydjwg/colorizer'
 
 call plug#end()
-let g:lightline = {
-	  \ 'colorscheme': 'dracula'
-	  \}
+
 set laststatus=2
 set noshowmode
 set shell=termite
@@ -38,3 +37,8 @@ let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=38
 
+set background=dark
+autocmd vimenter * ++nested colorscheme gruvbox
+
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
