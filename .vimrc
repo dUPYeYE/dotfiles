@@ -1,26 +1,7 @@
+"   dupp - vim settings
+
+"   General settings
 set nocompatible
-filetype off
-
-syntax on
-set number
-let g:dracula_colorterm = 0
-packadd! dracula
-syntax enable
-call plug#begin()
-
-Plug 'itchyny/lightline.vim'
-Plug 'gmarik/Vundle.vim'
-Plug 'suan/vim-instant-markdown', {'rtp': 'after'}
-Plug 'frazrepo/vim-rainbow'
-Plug 'morhetz/gruvbox'
-Plug 'vifm/vifm.vim'                               " Vifm
-Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'shinchu/lightline-gruvbox.vim'
-Plug 'lilydjwg/colorizer'
-
-call plug#end()
-
 set laststatus=2
 set noshowmode
 set shell=termite
@@ -28,6 +9,32 @@ set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
+set number
+
+filetype off
+syntax on
+syntax enable
+
+let g:dracula_colorterm = 0
+
+"   Plugins
+
+call plug#begin()
+
+Plug 'itchyny/lightline.vim'
+Plug 'gmarik/Vundle.vim'
+Plug 'suan/vim-instant-markdown', {'rtp': 'after'}
+Plug 'frazrepo/vim-rainbow'
+Plug 'morhetz/gruvbox'
+Plug 'vifm/vifm.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'lilydjwg/colorizer'
+
+call plug#end()
+
+"   Theming editor and lightline
 
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '►'
