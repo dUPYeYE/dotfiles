@@ -15,9 +15,6 @@ include $HOME/.config/i3/windows.conf
 # Colorscheme
 include $HOME/.config/i3/colors_gruvbox.conf
 
-# Wallpaper
-include $HOME/.config/i3/wallpaper.conf
-
 # Assign workspaces to monitors
 set $firstMonitor HDMI-A-1
 set $secondMonitor HDMI-A-2
