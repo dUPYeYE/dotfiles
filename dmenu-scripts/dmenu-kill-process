@@ -3,7 +3,7 @@
 # dmenu theming
 lines="-l 8 -z 1916"
 font="-fn Inconsolata-13"
-colors="-nb #282828 -nf #ebdbb2 -sb #cc241d -sf #ebdbb2 -nhb #fb4934 -nhf #7d241a -shb #282828 -shf #fb4934"
+colors="-nb #1e1e2e -nf #cdd6f4 -sb #f38ba8 -sf #1e1e2e -nhb     #f38ba8 -nhf #1e1e2e -shb #1e1e2e -shf #f38ba8"
 
 selected="$(ps -a -u $USER | \
             dmenu -i -p "Type to search and select process to kill" \

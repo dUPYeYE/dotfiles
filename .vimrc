@@ -15,8 +15,6 @@ filetype off
 syntax on
 syntax enable
 
-let g:dracula_colorterm = 0
-
 "   Plugins
 
 call plug#begin()
@@ -31,6 +29,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'lilydjwg/colorizer'
+Plug 'joshdick/onedark.vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 call plug#end()
 
@@ -44,8 +44,5 @@ let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=38
 
-set background=dark
-autocmd vimenter * ++nested colorscheme gruvbox
-
-let g:lightline = {}
-let g:lightline.colorscheme = 'gruvbox'
+colorscheme catppuccin_mocha
+let g:lightline = {'colorscheme': 'catppuccin_mocha'}

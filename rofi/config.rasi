@@ -2,10 +2,10 @@
 
 * {
     font: "Hack Nerd Font 14";
-    foreground: #f8f8f2;
-    background: #282a36;
-    active-background: #6272a4;
-    urgent-background: #ff5555;
+    foreground: #cdd6f4;
+    background: #1e1e2ecc;
+    active-background: #a6e3a1;
+    urgent-background: #cc241d;
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
@@ -58,7 +58,7 @@
 }
 #element.selected.normal {
     background-color: @selected-background;
-    text-color:       @foreground;
+    text-color:       @background;
 }
 #element.selected.urgent {
     background-color: @selected-urgent-background;

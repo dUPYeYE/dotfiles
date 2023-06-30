@@ -13,7 +13,8 @@ include $HOME/.config/i3/binds.conf
 include $HOME/.config/i3/windows.conf
 
 # Colorscheme
-include $HOME/.config/i3/colors_gruvbox.conf
+include $HOME/.config/i3/themes/catppuccin-mocha
+include $HOME/.config/i3/colors_catppuccin.conf
 
 # Assign workspaces to monitors
 set $firstMonitor HDMI-A-1
