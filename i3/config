@@ -17,8 +17,8 @@ include $HOME/.config/i3/themes/catppuccin-mocha
 include $HOME/.config/i3/colors_catppuccin.conf
 
 # Assign workspaces to monitors
-set $firstMonitor HDMI-A-1
-set $secondMonitor HDMI-A-2
+set $firstMonitor HDMI-A-0
+set $secondMonitor HDMI-A-1
 
 workspace 1 output $firstMonitor
 workspace 2 output $firstMonitor
@@ -30,3 +30,9 @@ workspace 7 output $firstMonitor
 workspace 8 output $secondMonitor
 workspace 9 output $secondMonitor
 workspace 10 output $secondMonitor
+
+# bindsym $mod+b [class="pulse"] scratchpad show; move position center
+# bindsym $mod+n [class="kitty"] scratchpad show; move position center
+
+
+# exec --no-startup-id kitty --class kitty,kitty
