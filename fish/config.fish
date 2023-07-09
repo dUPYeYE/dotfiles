@@ -7,6 +7,7 @@ $HOME/.local/share/colorscript/dupp
 starship init fish | source
 
 alias vim=nvim
+alias cat=bat
 
 set ANDROID_HOME /home/dupp/Android/Sdk
 export ANDROID_HOME="/home/dupp/Android/Sdk"
