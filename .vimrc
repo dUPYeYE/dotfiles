@@ -4,7 +4,7 @@
 set nocompatible
 set laststatus=2
 set noshowmode
-set shell=termite
+set shell=alacritty
 set expandtab
 set smarttab
 set shiftwidth=4
@@ -30,7 +30,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'joshdick/onedark.vim'
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'rose-pine/vim'
 
 call plug#end()
 
@@ -44,5 +44,6 @@ let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=38
 
-colorscheme catppuccin_mocha
-let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+set background=dark
+colorscheme rosepine
+let g:lightline = {'colorscheme': 'rosepine'}
