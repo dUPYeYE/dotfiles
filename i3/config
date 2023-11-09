@@ -16,6 +16,9 @@ include $HOME/.config/i3/windows.conf
 include $HOME/.config/i3/themes/catppuccin-mocha
 include $HOME/.config/i3/colors_catppuccin.conf
 
+# Bar
+include $HOME/.config/i3/bar.conf
+
 # Assign workspaces to monitors
 set $firstMonitor HDMI-A-0
 set $secondMonitor HDMI-A-1
@@ -31,15 +34,10 @@ workspace 8 output $secondMonitor
 workspace 9 output $secondMonitor
 workspace 10 output $secondMonitor
 
-bar {
-	position top
-    height 25
-	status_command i3status --config ~/.config/i3/i3status.conf
-}
-
+# Scratchpads
 for_window [class="vol|fterm|mus|sysinfo"] floating enable, resize set 1400 820, move scratchpad, border pixel 0
 
-exec --no-startup-id pgrep -f '^alacritty --class mus,mus' || alacritty --class mus,mus -e ncspot
-exec --no-startup-id pgrep -f '^alacritty --class vol,vol' || alacritty --class vol,vol -e pulsemixer
-exec --no-startup-id pgrep -f '^alacritty --class fterm,fterm' || alacritty --class fterm,fterm
-exec --no-startup-id pgrep -f '^alacritty --class sysinfo,sysinfo' || alacritty --class sysinfo,sysinfo -e btop 
+exec --no-startup-id pgrep -f '^kitty --class mus,mus' || kitty --class mus,mus -e spotify_player
+exec --no-startup-id pgrep -f '^kitty --class vol,vol' || kitty --class vol,vol -e pulsemixer
+exec --no-startup-id pgrep -f '^kitty --class fterm,fterm' || kitty --class fterm,fterm
+exec --no-startup-id pgrep -f '^kitty --class sysinfo,sysinfo' || kitty --class sysinfo,sysinfo -e btop 
