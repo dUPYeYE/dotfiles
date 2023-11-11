@@ -13,8 +13,7 @@ include $HOME/.config/i3/binds.conf
 include $HOME/.config/i3/windows.conf
 
 # Colorscheme
-include $HOME/.config/i3/themes/catppuccin-mocha
-include $HOME/.config/i3/colors_catppuccin.conf
+include $HOME/.config/i3/colors.conf
 
 # Bar
 include $HOME/.config/i3/bar.conf
@@ -35,7 +34,7 @@ workspace 9 output $secondMonitor
 workspace 10 output $secondMonitor
 
 # Scratchpads
-for_window [class="vol|fterm|mus|sysinfo"] floating enable, resize set 1400 820, move scratchpad, border pixel 0
+for_window [class="vol|fterm|mus|sysinfo"] floating enable, resize set 1080 720, move scratchpad, border pixel 0
 
 exec --no-startup-id pgrep -f '^kitty --class mus,mus' || kitty --class mus,mus -e spotify_player
 exec --no-startup-id pgrep -f '^kitty --class vol,vol' || kitty --class vol,vol -e pulsemixer
