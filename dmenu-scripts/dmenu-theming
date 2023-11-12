@@ -1,3 +1,4 @@
-lines="-l 15 -z 1916"
+lines="-l 15"
 font="-fn FiraCode-13"
-colors="-nb #1e1e2e -nf #cdd6f4 -sb #a6e3a1 -sf #1e1e2e -nhb #a6e3a1 -nhf #1e1e2e -shb #1e1e2e -shf #a6e3a1"
+colors="-nb #191724 -nf #e0def4 -sb #ebbcba -sf #21202e -nhf #191724 -nhb #ebbcba -shf #ebbcba -shb #191724"
+offset="-z 1916"

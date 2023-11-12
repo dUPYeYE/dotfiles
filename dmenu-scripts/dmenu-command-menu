@@ -5,5 +5,5 @@
 
 prompt="-p Run:"
 
-dmenu_run $prompt $lines $colors $font
+dmenu_run $prompt $lines $colors $font $offset
 
