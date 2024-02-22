@@ -213,15 +213,10 @@ playerctl
 sddm
 arcolinux-sddm-urbanlifestyle-git
 arcolinux-config-all-desktops-git
-** The files have been installed in /etc/skel/.config/ **
 arcolinux-dconf-all-desktops-git
-** The files have been installed in /etc/skel/.config/ **
 arcolinux-gtk3-sardi-arc-git
-** The files have been installed in /etc/skel/.config/gtk-3.0/ **
 arcolinux-i3wm-git
-** The files have been installed in /etc/skel/.config/i3 **
 arcolinux-local-xfce4-git
-** The files have been installed in /etc/skel/.local **
 python-psutil
 feh
 libev
@@ -230,14 +225,10 @@ i3lock-color
 betterlockscreen
 archlinux-logout-git
 arcolinux-nitrogen-git
-** The files have been installed in /etc/skel/.config/nitrogen **
 arcolinux-polybar-git
-** The files have been installed in /etc/skel/.config/polybar **
 arcolinux-rofi-git
-** The files have been installed in /etc/skel/.config/rofi **
 arcolinux-rofi-themes-git
 arcolinux-root-git
-** The files have been installed in /etc/skel **
 blas
 cblas
 lapack
@@ -250,10 +241,7 @@ rebornos-keyring
 rebornos-mirrorlist
 archlinux-tweak-tool-git
 arcolinux-volumeicon-git
-** The files have been installed in /etc/skel/.config/volumeicon **
 arcolinux-xfce-git
-** The files have been installed in /etc/skel/.config/Thunar **
-** The files have been installed in /etc/skel/.config/xfce4 **
 python-six
 python-xlib
 python-i3ipc
@@ -655,7 +643,6 @@ lib32-libxv
 lib32-gst-plugins-base-libs
 arcolinux-meta-wine
 arcolinux-desktop-trasher-git
-** The ArcoLinux Desktop Trasher is installed
 enchant
 harfbuzz-icu
 hyphen
@@ -682,7 +669,6 @@ qt5-webengine
 arcolinux-teamviewer
 arcolinux-tellme-git
 arcolinux-xlunch-git
-** The files have been installed in /etc/skel/.config/xlunch/ **
 discord
 slack-desktop
 teams
@@ -942,7 +928,6 @@ firefox
 nvm
 python-i3ipc
 rustup
-rust
 spotify-player
 unibilium
 libtermkey

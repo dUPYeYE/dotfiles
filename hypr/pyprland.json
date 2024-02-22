@@ -1,0 +1,23 @@
+{
+    "pyprland": {
+      "plugins": ["scratchpads", "magnify"]
+    },
+    "scratchpads": {
+      "spotify_player": {
+          "command": "kitty --class scratchpad -e spotify_player",
+          "margin": 50
+      },
+      "fterm": {
+          "command": "kitty --class scratchpad",
+          "margin": 50
+      },
+      "vol": {
+          "command": "kitty --class scratchpad -e pulsemixer",
+          "margin": 50
+      },
+      "btop": {
+          "command": "kitty --class scratchpad -e btop",
+          "margin": 50
+      }
+    }
+}

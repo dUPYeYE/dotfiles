@@ -41,8 +41,6 @@ end
 # You must call it on initialization or listening to directory switching won't work
 load_nvm > /dev/stderr
 
-eval ( /home/linuxbrew/.linuxbrew/bin/brew shellenv )
-
 export PATH="$PATH:$HOME/.spicetify"
 fish_add_path /home/dupp/.spicetify
 
@@ -51,3 +49,4 @@ $HOME/.local/share/colorscript/dupp
 
 starship init fish | source
 
+zoxide init --cmd cd fish | source

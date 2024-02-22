@@ -36,7 +36,7 @@ workspace 10 output $secondMonitor
 # Scratchpads
 for_window [class="vol|fterm|mus|sysinfo"] floating enable, resize set 1080 720, move scratchpad, border pixel 0
 
-exec --no-startup-id pgrep -f '^kitty --class mus,mus' || kitty --class mus,mus -e spotify_player
-exec --no-startup-id pgrep -f '^kitty --class vol,vol' || kitty --class vol,vol -e pulsemixer
-exec --no-startup-id pgrep -f '^kitty --class fterm,fterm' || kitty --class fterm,fterm
-exec --no-startup-id pgrep -f '^kitty --class sysinfo,sysinfo' || kitty --class sysinfo,sysinfo -e btop 
+exec_always --no-startup-id pgrep -f '^kitty --class mus,mus' || kitty --class mus,mus -e spotify_player
+exec_always --no-startup-id pgrep -f '^kitty --class vol,vol' || kitty --class vol,vol -e pulsemixer
+exec_always --no-startup-id pgrep -f '^kitty --class fterm,fterm' || kitty --class fterm,fterm
+exec_always --no-startup-id pgrep -f '^kitty --class sysinfo,sysinfo' || kitty --class sysinfo,sysinfo -e btop 
