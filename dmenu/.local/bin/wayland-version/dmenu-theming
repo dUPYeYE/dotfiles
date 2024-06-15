@@ -1,0 +1,3 @@
+lines="-l 15 --border 2 --counter always"
+colors="--nb #191724 --nf #e0def4 --sb #ebbcba --ab #191724 --af #e0def4 --sf #21202e --hf #191724 --hb #ebbcba --tb #ebbcba --tf #191724 --bdr #ebbcba"
+font="--fn 'FiraCode 13'"

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# dmenu theming
+. $HOME/.local/bin/dmenu-theming
+primary="--sb #eb6f92 --hb #eb6f92  --tb #eb6f92 --bdr #eb6f92"
+
+selected="$(ps -a -u $USER | \
+            bemenu -i -p "Type to search and select process to kill" \
+            $lines $colors $primary $font | \
+            awk '{print $1" "$4}')"; 
+
+if [[ ! -z $selected ]]; then
+
+    answer="$(echo -e "Yes\nNo" | \
+            bemenu -i -p "$selected will be killed, are you sure?" \
+            $lines $colors $primary $font )"
+
+    if [[ $answer == "Yes" ]]; then
+        selpid="$(awk '{print $1}' <<< $selected)"; 
+        kill -9 $selpid
+    fi
+fi
+
+exit 0
