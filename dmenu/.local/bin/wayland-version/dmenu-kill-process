@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # dmenu theming
-. $HOME/.local/bin/dmenu-theming
+. $HOME/.local/bin/wayland-version/dmenu-theming
 primary="--sb #eb6f92 --hb #eb6f92  --tb #eb6f92 --bdr #eb6f92"
 
 selected="$(ps -a -u $USER | \
