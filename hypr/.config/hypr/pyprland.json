@@ -8,7 +8,7 @@
           "margin": 50
       },
       "fterm": {
-          "command": "kitty --class scratchpad",
+          "command": "kitty --class scratchpad -e tmux",
           "margin": 50
       },
       "vol": {
