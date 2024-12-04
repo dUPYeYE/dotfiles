@@ -57,6 +57,3 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 # Generated for envman. Do not edit.
 test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/dupp/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/home/dupp/Downloads/google-cloud-sdk/path.fish.inc'; end

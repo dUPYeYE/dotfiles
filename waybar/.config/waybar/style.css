@@ -8,7 +8,7 @@
 }
 
 window#waybar {
-    background: rgba(21, 18, 27, 0);
+    background: rgba(21, 18, 27, 100);
     color: #e0def4;
 }
 
@@ -70,8 +70,8 @@ tooltip {
     background: #191724;
     opacity: 0.8;
     padding: 0px 10px;
-    margin: 3px 0px;
-    margin-top: 10px;
+    /* margin: 3px 0px; */
+    /* margin-top: 10px; */
     border: 1px solid #181825;
 }
 
