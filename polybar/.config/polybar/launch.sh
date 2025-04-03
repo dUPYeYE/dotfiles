@@ -19,7 +19,7 @@ MONITOR=$PRIMARY polybar --reload -c $BAR_CONFIG $BAR_NAME &
 sleep 1
 
 BAR_NAME=secondary
-# MONITOR=DP-1 polybar --reload -c $BAR_CONFIG $BAR_NAME &
+MONITOR=DP-1 polybar --reload -c $BAR_CONFIG $BAR_NAME &
 BAR_NAME=tertiary
 MONITOR=eDP-1 polybar --reload -c $BAR_CONFIG $BAR_NAME &
 

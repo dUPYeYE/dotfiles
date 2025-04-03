@@ -60,3 +60,10 @@ test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/dupp/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/home/dupp/Downloads/google-cloud-sdk/path.fish.inc'; end
+
+# pnpm
+set -gx PNPM_HOME "/home/dupp/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

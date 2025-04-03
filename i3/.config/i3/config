@@ -13,13 +13,13 @@ include $HOME/.config/i3/binds.conf
 include $HOME/.config/i3/windows.conf
 
 # Colorscheme
-include $HOME/.config/i3/colors.conf
+include $HOME/.config/i3/colors_gruvbox.conf
 
 # Bar
 include $HOME/.config/i3/bar.conf
 
 # Assign workspaces to monitors
-set $firstMonitor HDMI-1
+set $firstMonitor HDMI-1-0
 set $secondMonitor DP-1
 set $thirdMonitor eDP-1
 
@@ -35,6 +35,8 @@ workspace 9 output $secondMonitor
 workspace 9 output $secondMonitor
 workspace 11 output $thirdMonitor
 workspace 12 output $thirdMonitor
+workspace 13 output $thirdMonitor
+workspace 14 output $thirdMonitor
 
 # Scratchpads
 for_window [class="vol|fterm|mus|sysinfo"] floating enable, resize set 1080 720, move scratchpad, border pixel 0

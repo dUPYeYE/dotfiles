@@ -2,7 +2,7 @@
 
 # dmenu theming
 . $HOME/.local/bin/dmenu-theming
-colors="-nb #191724 -nf #e0def4 -sb #eb6f92 -sf #21202e -nhf #191724 -nhb #eb6f92 -shf #eb6f92 -shb #191724"
+colors="-nb #282828 -nf #e0def4 -sb #eb6f92 -sf #21202e -nhf #282828 -nhb #eb6f92 -shf #eb6f92 -shb #191724"
 
 selected="$(ps -a -u $USER | \
             dmenu -i -p "Type to search and select process to kill" \
