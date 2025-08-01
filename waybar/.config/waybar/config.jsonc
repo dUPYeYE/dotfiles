@@ -6,7 +6,7 @@
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
-  "height": 40,
+  "height": 28,
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock","custom/weather"],
   "modules-right": ["custom/music", "pulseaudio", "hyprland/language", "tray"],
@@ -53,7 +53,7 @@
   },
 
   "clock": {
-    "format": "<b> {:%I:%M %p   %a, %b %e}</b>",
+    "format": "<b> {:%H:%M   %A, %e}</b>",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
 
