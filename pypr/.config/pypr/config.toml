@@ -1,0 +1,14 @@
+[pyprland]
+plugins = ["scratchpads", "magnify"]
+
+[scratchpads.fterm]
+command = "alacritty --class scratchpad"
+margin = 50
+
+[scratchpads.vol]
+command = "alacritty --class scratchpad -e wiremix"
+margin = 50
+
+[scratchpads.btop]
+command = "alacritty --class scratchpad -e btop"
+margin = 50

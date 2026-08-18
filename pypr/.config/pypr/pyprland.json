@@ -1,0 +1,19 @@
+{
+    "pyprland": {
+      "plugins": ["scratchpads", "magnify"]
+    },
+    "scratchpads": {
+      "fterm": {
+          "command": "alacritty --class scratchpad",
+          "margin": 50
+      },
+      "vol": {
+          "command": "alacritty --class scratchpad -e wiremix",
+          "margin": 50
+      },
+      "btop": {
+          "command": "alacritty --class scratchpad -e btop",
+          "margin": 50
+      }
+    }
+}
