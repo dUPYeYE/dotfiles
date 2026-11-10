@@ -1,0 +1,11 @@
+# fuzzel counterpart of dmenu-theming, same rose-pine palette.
+# fuzzel wants RRGGBBAA with no leading '#'.
+lines="--lines 15 --width 45 --counter"
+colors="--background 191724ff --text-color e0def4ff \
+--match-color ebbcbaff \
+--selection-color ebbcbaff --selection-text-color 21202eff \
+--selection-match-color 31748fff \
+--prompt-color ebbcbaff --input-color e0def4ff \
+--placeholder-color 6e6a86ff --counter-color 908caaff \
+--border-color ebbcbaff --border-width 2 --border-radius 0"
+font="--font FiraCode:size=13"

@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+new_label="New session…"
+
+icon_new=$''     # plus
+icon_live=$''    # terminal
+icon_exited=$''  # archive
+
+# Live sessions first, then resurrectable ones. Field 1 is always the name.
+# Rows are "<glyph>\t<name>"; the menu shows the glyph but returns only the name.
+rows="$(zellij ls -nr 2>/dev/null | awk -v live_icon="$icon_live" -v exited_icon="$icon_exited" '
+    { name = $1 }
+    index($0, "EXITED") { exited = exited exited_icon "\t" name "\n"; next }
+    { live = live live_icon "\t" name "\n" }
+    END { printf "%s%s", live, exited }
+')"
+
+selected="$(printf '%s\t%s\n%s' "$icon_new" "$new_label" "$rows" |
+            omarchy menu select "Zellij session")" || exit 0
+
+if [[ $selected == "$new_label" ]]; then
+    selected="$(omarchy menu input "New Zellij session name")" || exit 0
+fi
+
+# zellij session names must not contain whitespace.
+name="$(printf '%s' "$selected" | tr -d '[:space:]')"
+[[ -z $name ]] && exit 0
+
+# Each session's terminal gets its own app_id, so an already-open session is
+# focused instead of attaching a second, mirrored client.
+app_id="org.omarchy.zellij-$(printf '%s' "$name" | tr -c 'A-Za-z0-9' '-')"
+
+addr="$(hyprctl clients -j 2>/dev/null |
+        jq -r --arg c "$app_id" 'first(.[] | select(.class == $c) | .address) // empty')"
+
+if [[ -n $addr ]]; then
+    hyprctl dispatch "hl.dsp.focus({ window = \"address:$addr\" })" >/dev/null 2>&1 ||
+        hyprctl dispatch focuswindow "address:$addr"
+    exit 0
+fi
+
+# `attach -c` attaches to a live session, resurrects an exited one, or creates
+# a new one if the typed name matched nothing.
+exec omarchy-launch-tui --app-id="$app_id" zellij attach -c "$name"

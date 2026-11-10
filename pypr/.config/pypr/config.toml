@@ -1,0 +1,11 @@
+[pyprland]
+plugins = ["scratchpads", "magnify"]
+
+[scratchpads.fterm]
+command = "uwsm app -- alacritty --class scratchpad"
+class = "scratchpad"
+margin = 50
+
+[scratchpads.btop]
+command = "uwsm app -- alacritty --class scratchpad -e btop"
+margin = 50

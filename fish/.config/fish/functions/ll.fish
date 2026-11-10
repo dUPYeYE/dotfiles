@@ -1,3 +1,3 @@
-function ll --wraps='exa --icons --group-directories-first -alF' --description 'alias ll exa --icons --group-directories-first -alF'
-  exa --icons --group-directories-first -alF $argv; 
+function ll --wraps='eza --icons --group-directories-first -al --classify=auto' --description 'alias ll eza --icons --group-directories-first -al --classify=auto'
+  eza --icons --group-directories-first -al --classify=auto $argv; 
 end

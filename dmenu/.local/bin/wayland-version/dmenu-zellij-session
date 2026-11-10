@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+# fuzzel does fuzzy matching and highlights the matched characters; bemenu does
+# neither (0.6.23 filters on plain substrings), so it is only a fallback.
+if command -v fuzzel >/dev/null; then
+    . "$HOME/.local/bin/wayland-version/fuzzel-theming"
+    menu() { fuzzel --dmenu --match-mode=fzf --prompt "$1" $lines $colors $font; }
+else
+    . "$HOME/.local/bin/wayland-version/dmenu-theming"
+    menu() { bemenu -i -p "$1" $lines $colors $font; }
+fi
+
+new_entry="+ new session"
+
+# Live sessions first, then resurrectable ones marked "(exited)".
+# Field 1 is always the session name, so the marker strips off cleanly below.
+sessions="$(zellij ls -nr 2>/dev/null | awk '
+    { name = $1 }
+    index($0, "EXITED") { exited = exited name "  (exited)\n"; next }
+    { live = live name "\n" }
+    END { printf "%s%s", live, exited }
+')"
+
+# $sessions lost its trailing newline to the command substitution above.
+list="$sessions"
+[[ -n $list ]] && list+=$'\n'
+list+="$new_entry"
+
+selected="$(printf '%s\n' "$list" | menu "zellij session: ")"
+[[ -z $selected ]] && exit 0
+
+# Both menus print unmatched input as-is, but fuzzy matching means a typed new
+# name usually *does* match something, so creating needs its own entry. The
+# second menu has no entries, so whatever is typed comes back verbatim.
+if [[ $selected == "$new_entry" ]]; then
+    selected="$(printf '' | menu "new session name: ")"
+    [[ -z $selected ]] && exit 0
+fi
+
+name="$(awk '{print $1}' <<< "$selected")"
+[[ -z $name ]] && exit 0
+
+# Each session's terminal gets its own Wayland app_id, so an already-open
+# session is focused instead of attaching a second, mirrored client.
+class="com.mitchellh.ghostty.zellij_$(printf '%s' "$name" | tr -c 'A-Za-z0-9' '_')"
+
+addr="$(hyprctl clients -j 2>/dev/null |
+        jq -r --arg c "$class" 'first(.[] | select(.class == $c) | .address) // empty')"
+
+if [[ -n $addr ]]; then
+    hyprctl dispatch "hl.dsp.focus({ window = \"address:$addr\" })"
+    exit 0
+fi
+
+# `attach -c` attaches to a live session, resurrects an exited one, or creates
+# a new one if the typed name matched nothing.
+if command -v uwsm-app >/dev/null; then
+    uwsm-app -- ghostty --class="$class" -e zellij attach -c "$name"
+else
+    ghostty --class="$class" -e zellij attach -c "$name"
+fi
